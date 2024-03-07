@@ -6,10 +6,17 @@ import dotenv from "dotenv";
 // -r dotenv/config --experimental-json-modules to use import we have to write this in the json package 
 // after nodemon and before scr
 import connectDB from "./db/index.js";
-dotenv.config({path: './env'})
+dotenv.config({path: './env'});
 
 connectDB()
-
+.then(()=>{
+    app.listen(process.env.PORT || 8000,()=>{
+        console.log(`Server is listening at port ${process.env.PORT}`);
+    })
+})
+.catch((error)=>{
+    console.log("MONGODB connection failed !!",error);
+})
 
 //the code below is use if we cannot write the code in the db folder
 // but this is the recommended
