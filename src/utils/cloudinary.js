@@ -7,7 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const uploadOnCloudniary = async (localFilePath) => {
+const uploadOnCloudinary = async (localFilePath) => {
     try{
         if(!localFilePath) return null
         // upload the file on cloudniary
@@ -25,4 +25,4 @@ cloudinary.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/
   { public_id: "olympic_flag" }, 
   function(error, result) {console.log(result); });
 
-  export { uploadOnCloudniary };
+  export { uploadOnCloudinary };
